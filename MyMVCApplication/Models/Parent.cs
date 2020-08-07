@@ -14,4 +14,10 @@ namespace MyMVCApplication.Models
         public string ParentName { get; set; }
         public string ParentFirstName { get; set; }
     }
+
+    public class StandardParent
+    {
+        public int StandardId { get; set; }
+        public string StandardName { get; set; }
+    }
 }
