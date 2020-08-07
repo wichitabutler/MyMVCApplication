@@ -13,6 +13,7 @@ namespace MyMVCApplication.Models
         [Display(Name = "Name")]
         public string ParentName { get; set; }
         public string ParentFirstName { get; set; }
+        public string ParentLastName { get; set; }
     }
 
     public class StandardParent
