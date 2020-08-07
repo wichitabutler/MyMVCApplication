@@ -1,0 +1,93 @@
+﻿@model IEnumerable<MyMVCApplication.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Razor syntax demo</h1>
+
+<h2>@DateTime.Now.ToShortDateString()</h2>
+
+@{
+    var date = DateTime.Now.ToShortDateString();
+    var message = "Hello World";
+}
+
+<h3>Today's date is: @date </h3>
+<h3>@message</h3>
+
+
+@if(DateTime.IsLeapYear(DateTime.Now.Year) )
+{
+    @DateTime.Now.Year @:is a leap year.
+}
+else { 
+    @DateTime.Now.Year @:is not a leap year.
+}
+<br />
+
+@for (int i = 0; i < 5; i++) { 
+    @i.ToString() <br />
+}
+
+
+<div class="custom-control custom-radio">
+     <input type="radio" 
+            class="custom-control-input" 
+            id="r1" 
+            name="r1">
+     <label class="custom-control-label" 
+            for="r1">Option 1</label>
+</div>
+<div class="custom-control custom-radio">
+      <input type="radio" 
+            class="custom-control-input" 
+            id="r2" 
+            name="r2">
+     <label class="custom-control-label" 
+            for="r2">Option 2</label>
+</div>
+
+<h2>Student List</h2>
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.StudentId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.StudentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StudentId })
+        </td>
+    </tr>
+}
+
+</table>
